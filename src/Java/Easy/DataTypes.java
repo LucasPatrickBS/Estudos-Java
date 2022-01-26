@@ -10,39 +10,46 @@ public class DataTypes {
 
         byte i = 0;
 
-        for (int j = 0; j < 6; j++) {
+        int lines =scanner.nextInt();
+
+        for (int j = 0; j < lines; j++) {
 
             try {
              
-                int x = scanner.nextInt();
-                
-                if(x>=9 && x<=-9) System.out.println(x+" can be fitted in:");
-    
-                if(x>=-333333333 && x<=333333333) i = 3;
-                if(x>=-150000 && x<=150000) i = 2;
-                if(x>=-150 && x<=150) i = 1;
-                if(x>=-9 && x<=9) continue;
-                
+                long x = scanner.nextLong();
+
+                if(x>=-9223372036854775808L && x<=9223372036854775807L) i = 4;
+                if(x>=-2147483648 && x<=2147483647) i = 3;
+                if(x>=-32768 && x<=32767) i = 2;
+                if(x>=-128 && x<=127) i = 1;
+
                 switch (i) {
-   
+                   
                     case 1:
                         
+                        continue;
+
+                    case 2:
+                        
+                        System.out.println(x+" can be fitted in:");
                         System.out.println("* short");
                         System.out.println("* int");
                         System.out.println("* long");
                         break;
     
-                    case 2:
-                        
+                    case 3:
+
+                        System.out.println(x+" can be fitted in:");
                         System.out.println("* int");
                         System.out.println("* long");
                         break;
                         
-                    case 3:
+                    case 4:
                         
+                        System.out.println(x+" can be fitted in:");
                         System.out.println("* long");
                         break;
-                
+
                     default:
     
                         System.out.println("Joined in default!");
@@ -58,4 +65,5 @@ public class DataTypes {
         
         scanner.close();
     }
+
 }
